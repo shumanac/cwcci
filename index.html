@@ -27,7 +27,7 @@
     <!-- Theme CSS -->
     <link href="css/new-age.min.css" rel="stylesheet">
    
- 
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -250,7 +250,9 @@ $gray: #EEE;
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">CWCCI LOGO</a>
+<!--                <a class="navbar-brand page-scroll" href="#page-top">CWCCI LOGO</a>-->
+              <embed src="img/CWCCI_logo_1.swf" wmode="transparent">   
+                
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -388,7 +390,8 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
 
     <section id="contact" class="contact bg-primary">
         <div class="container">
-
+        <div id="map-canvas"></div>
+ 
 
             <h2>For more information</h2>
 
@@ -460,6 +463,39 @@ Element.prototype.hasClass = function(className) {
 };
         
         </script>
+   <script>
+    function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(23.755408, 90.366498),
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        	var image = 'images/webable-marker.png';
+  			var myLatLng = new google.maps.LatLng(23.755408, 90.366498);
+  			var beachMarker = new google.maps.Marker({
+      		position: myLatLng,
+      		map: map,
+      		icon: image
+ 		 });
+
+  			map.set('styles', [
+  {
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [
+      { color: '#0079dd' },
+      { weight: 1.6 }
+    ]
+  },
+]);
+              }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+ 
+
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
