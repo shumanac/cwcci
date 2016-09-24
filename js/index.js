@@ -1,17 +1,13 @@
-
-
-$( ".cross" ).hide();
-$( ".menu" ).hide();
-$( ".hamburger" ).click(function() {
-$( ".menu" ).slideToggle( "slow", function() {
-$( ".hamburger" ).hide();
-$( ".cross" ).show();
-});
-});
-
-$( ".cross" ).click(function() {
-$( ".menu" ).slideToggle( "slow", function() {
-$( ".cross" ).hide();
-$( ".hamburger" ).show();
-});
+$(window).scroll(function(){
+    if ($(window).scrollTop() > 920) {
+        $('#myImage').show();
+   
+        $('#main-nav').css('top','0px');
+        
+    } else {
+        $('#myImage').hide();
+      
+        $('#main-nav').css('top','100px');
+     
+    }
 });

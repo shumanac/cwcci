@@ -26,8 +26,9 @@
 
     <!-- Theme CSS -->
     <link href="css/new-age.min.css" rel="stylesheet">
-   
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <script src="js/index.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +36,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 
     <style>
     .hero {
@@ -127,7 +127,7 @@ $gray: #EEE;
   line-height: 1.4;
   color: $blue;
 }
-
+    
 .dropdown {
   a {
     text-decoration: none;
@@ -251,8 +251,9 @@ $gray: #EEE;
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
 <!--                <a class="navbar-brand page-scroll" href="#page-top">CWCCI LOGO</a>-->
-              <embed src="img/CWCCI_logo_1.swf" wmode="transparent">   
-                
+                <div id="myImage" style="display:none">
+                <embed  src="img/CWCCI_logo_1.swf" wmode="transparent" >   
+                </div>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -271,6 +272,7 @@ $gray: #EEE;
                         <a class="page-scroll" href="#contact">CONTACT</a>
                     </li>
 
+<!--
                       <li class="dropdown"> <a  data-toggle="dropdown"  >MORE >></a>
                           <ul class="dropdown-menu">
         <li><a href="president.html" target="_blank">President's Message</a></li>
@@ -289,6 +291,37 @@ $gray: #EEE;
                     
                     
                     </li>
+
+-->
+                    
+<!--
+                      <li class="dropdown">
+      <a href="#" class="trigger-drop" title="more">
+        More<i class="fa fa-angle-down"></i>
+      </a>
+      <ul class="drop" style="color:white!important">
+           <li><a href="president.html" target="_blank">President's Message</a></li>
+    <li><a href="bod.html" target="_blank">Board of Directors</a></li>
+         <li><a href="service.html" target="_blank">Service</a></li>
+                              <li><a href="membership.html" target="_blank">Membership</a></li>
+                              <li><a href="sme.html" target="_blank">SME Couseling </a></li>
+                              <li><a href="wedp.html" target="_blank">WEDP</a></li>
+                              <li><a href="training.html" target="_blank">Training</a></li>
+                              <li><a href="partner.html" target="_blank">Partner</a></li>
+                              <li><a href="member_product.html" target="_blank">Member Showcase & Products</a></li>
+                              <li><a href="news.html" target="_blank">Newsletter & Publications</a></li>
+                              <li><a href="upcoming.html" target="_blank">Upcoming Events </a></li>
+   
+      </ul>
+    </li>
+                
+-->
+                    
+                    
+                    <li>  <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">More</a></li>
+                    
+                    
+                    
                 </ul>
              
 
@@ -347,7 +380,7 @@ $gray: #EEE;
 
                         <h2>About CWCCI </h2>
 
-                        <p class="text-muted">Check out what you can do with this app theme!</p>
+                     
                         <hr>
                     </div>
                 </div>
@@ -390,8 +423,8 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
 
     <section id="contact" class="contact bg-primary">
         <div class="container">
-        <div id="map-canvas"></div>
- 
+                 <h2>Contact Us</h2>
+ <div id="map" style="width:100%;height:500px"></div>
 
             <h2>For more information</h2>
 
@@ -430,73 +463,40 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
             </ul>
         </div>
     </footer>
+            
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(22.3272, 91.797654),
+    zoom: 15
+  }
+     
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+    
+    var myLatlng = new google.maps.LatLng(22.3272, 91.797654);
+var mapOptions = {
+  zoom: 14,
+  center: myLatlng
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-        <script>
-        // Dropdown Menu
-var dropdown = document.querySelectorAll('.dropdown');
-var dropdownArray = Array.prototype.slice.call(dropdown,0);
-dropdownArray.forEach(function(el){
-	var button = el.querySelector('a[data-toggle="dropdown"]'),
-			menu = el.querySelector('.dropdown-menu'),
-			arrow = button.querySelector('i.icon-arrow');
+var marker = new google.maps.Marker({
+    position: myLatlng,
+    title:"Hello World!"
+});
 
-	button.onclick = function(event) {
-		if(!menu.hasClass('show')) {
-			menu.classList.add('show');
-			menu.classList.remove('hide');
-			arrow.classList.add('open');
-			arrow.classList.remove('close');
-			event.preventDefault();
-		}
-		else {
-			menu.classList.remove('show');
-			menu.classList.add('hide');
-			arrow.classList.remove('open');
-			arrow.classList.add('close');
-			event.preventDefault();
-		}
-	};
-})
-
-Element.prototype.hasClass = function(className) {
-    return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
-};
+// To add the marker to the map, call setMap();
+marker.setMap(map);
+    
+     
+}
+    
+  
+</script>
         
-        </script>
-   <script>
-    function initialize() {
-        var mapCanvas = document.getElementById('map-canvas');
-        var mapOptions = {
-          center: new google.maps.LatLng(23.755408, 90.366498),
-          zoom: 18,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-        	var image = 'images/webable-marker.png';
-  			var myLatLng = new google.maps.LatLng(23.755408, 90.366498);
-  			var beachMarker = new google.maps.Marker({
-      		position: myLatLng,
-      		map: map,
-      		icon: image
- 		 });
 
-  			map.set('styles', [
-  {
-    featureType: 'road',
-    elementType: 'geometry',
-    stylers: [
-      { color: '#0079dd' },
-      { weight: 1.6 }
-    ]
-  },
-]);
-              }
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
- 
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFfd9bp6esmWYNSTkiRgLONkiAVHfstZY&callback=myMap"></script>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -508,6 +508,15 @@ Element.prototype.hasClass = function(className) {
 
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
+  <script src="js/index.js"></script>
+<script>
+      
+
+     $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
 </body>
 

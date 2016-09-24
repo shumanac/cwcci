@@ -1,184 +1,87 @@
-body {
-  background: rgba(11, 12, 19, 1);
-  -webkit-font-smoothing: antialiased;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
 
-body {
-  overflow: hidden;
-}
-
-body.loaded {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.wrapper {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-.loading {
-  background: rgba(16, 17, 24, 1);
-  height: 100vh;
-  overflow: hidden;
-  width: 100%;
-  position: fixed;
-  text-align: center;
-  z-index: 1001;
-}
-
-.svg-wrapper {
-  height: 150px;
-  margin: auto;
+    // NAVIGATION
+#navigation {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
-  width: 150px;
-}
+  height: 50px;
+  background: #fff;
+  box-shadow: 0 -5px 5px 5px rgba(#000, 0.3);
 
-.animate {
-  fill: transparent;
-  stroke-dasharray: 300;
-  stroke-dashoffset: 600;
-  stroke-width: 1px;
-  stroke: #fdad59;
-}
-
-.text {
-  color: #fff;
-  display: inline-block;
-  position: relative;
-  top: -110px;
-}
-
-.logo {
-  display: block;
-  letter-spacing: 10px;
-  font-size: 22px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #fff;
-  font-family: 'Cinzel';
-}
-
-.motto {
-  display: block;
-  padding-top: 10px;
-  font-family: 'Cinzel';
-  font-size: 9px;
-  letter-spacing: 3px;
-}
-
-
-/*----------------------------------------------*/
-
-
-/*Desktop Specific CSS*/
-
-@media screen and (min-width: 610px) {
-  .mobile {
-    display: none;
-  }
-  .content-2 {
-    display: none;
-  }
-  header {
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    position: fixed;
-    -webkit-transition: all .5s;
-    transition: all .5s ease;
-    z-index: 999;
-  }
-  header #logo {
-    float: left;
-    margin-left: 5%;
-    font-family: 'Open Sans';
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 300;
-    font-size: 30px;
-    color: #fdad59;
-  }
-  header nav {
+  // LINKS
+  .links {
     float: right;
-    margin-right: 5%;
+    margin-right: 10px;
+    li {
+      float: left;
+      margin: 10px 0 10px 5px;
+      a {
+        position: relative;
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 2px;
+        display: block;
+        transition: all 150ms ease;
+        color: white;
+        line-height: 30px;
+        white-space: nowrap;
+        &:hover,
+        &.active {
+          background: $color-accent;
+          color: white;
+        }
+        &.active {
+          background: shade($color-accent, 15%);
+        }
+        &[class*="trigger-"] {
+          padding-right: 40px;
+        }
+        i {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 50%;
+            margin: auto;
+            border-left: 1px solid rgba(#000, 0.15);
+          }
+        }
+      }
+      // DROPDOWN
+      &.dropdown {
+        position: relative;
+        // DROP
+        .drop {
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-radius: 2px;
+          background: $color-base;
+          display: none;
+          overflow: hidden;
+          box-shadow: 0 0 5px rgba(#000, 0.3);
+          transform: translateY(35px);
+          li {
+            float: none;
+            margin: 0;
+            a {
+              border-radius: 0;
+            }
+          }
+        
+        }
+      }
+    }
   }
-  header nav a {
-    position: relative;
-    color: #a3a3a3;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-left: 50px;
-    transition: color .25s ease;
-  }
-  #d_four {
-    color: #fdad59;
-  }
-  nav a:hover {
-    color: white;
-  }
-  header.resize {
-    height: 70px;
-    line-height: 70px;
-    background: rgb(31, 32, 39);
-    border-bottom: 1px solid rgb(46, 48, 56);
-  }
-  .wrapper {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  .landing {
-    width: 100%;
-    height: 100%;
-    transform: scale(1.25);
-    background-image: linear-gradient(rgba(21, 22, 29, .75), rgba(21, 22, 29, .75)), url(https://upload.wikimedia.org/wikipedia/commons/0/08/Elm_Street,_Manchester_NH.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    transition: all 1.5s ease;
-  }
-  .landing.loaded {
-    transform: scale(1.0);
-  }
-  .landing h1 {
-    color: white;
-    font-size:3vw;
-    position: absolute;
-    text-transform: uppercase;
-    position: absolute;
-    margin-left: 5%;
-	width: 60%;
-    transition: all .75s ease;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    letter-spacing: 5px;
-    top: 35%;
-  }
-  .landing h2 {
-	color: #fdad59;
-	font-family: 'Noto Serif', serif, sans-serif;
-    font-style: italic;
-    font-size: 20px;
-	position: absolute;
-	top: 52%;
-	margin-left: -50%;
-	transition: margin-left 1s ease;
-  }
-  .landing h2.loaded {
-	 margin-left: 5%;
-  }
+}
