@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Chittagong Women Chamber of Commerce</title>
- 
+
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendor/device-mockups/device-mockups.min.css">
-
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
     <!-- Theme CSS -->
-    <link href="css/new-age.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+    <link href="css/new-age.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <script src="js/index.js"></script>
 
@@ -38,205 +38,208 @@
     <![endif]-->
 
     <style>
-    .hero {
-  background-size: 150%;
-  background-repeat: no-repeat;
-  background-position: left;
-  -webkit-animation: slide 40s ease;
-  transform: translate3d(0,0,0);
-  height: 100vh;
-}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: rgba(76,56,75,.8)
-}
-
-.hero__content {
-  z-index: 101;
-  position: relative;
-}
-
-@-webkit-keyframes slide {
-  0%   { background-position: left; }
-  50%   { background-position: right; }
-  100% { background-position: left; }
-}
-
-.hero h1 {
-  font-size: 50px;
-  font-weight: 100;
-  color: white;
-  margin: 0;
-}
-
-.hero__content {
-    padding: 200px 100px;
-    max-width: 310px;
-}
-
-    $blue: #2980B9;
-$gray: #EEE;
-@mixin ul-nostyle {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-@mixin double-shadow($color) {
-  @include box-shadow(0 1px 0 lighten($color, 10%) inset,
-  0 -1px 0 darken($color, 10%) inset);
-}
-
-@mixin hover-style($color) {
-  &:hover {
-    background: lighten($color, 3%);
-  }
-}
-
-@mixin animation($content) {
-  animation: $content;
-  -moz-animation: $content;
-  -webkit-animation: $content;
-}
-
-@mixin keyframes($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-}
-
-// =============================================================================
-//	Classes
-// =============================================================================
-.title {
-  font-family: 'Pacifico';
-  font-weight: norma;
-  font-size: 40px;
-  text-align: center;
-  line-height: 1.4;
-  color: $blue;
-}
-    
-.dropdown {
-  a {
-    text-decoration: none;
-  }
-  [data-toggle="dropdown"] {
-    position: relative;
-    display: block;
-    color: white;
-    background: $blue;
-    @include double-shadow($blue);
-    @include hover-style($blue);
-    @include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.3));
-    padding: 10px;
-  }
-  .icon-arrow {
-    position: absolute;
-    display: block;
-    font-size: 0.7em;
-    color: #fff;
-    top: 14px;
-    right: 10px;
-    &.open {
-      @include transform(rotate(-180deg));
-      @include transition(transform .6s);
-    }
-    &.close {
-      @include transform(rotate(0deg));
-      @include transition(transform .6s);
-    }
-    &:before {
-      content: '\25BC';
-    }
-  }
-  .dropdown-menu {
-    max-height: 0;
-    overflow: hidden;
-    @include ul-nostyle;
-    li {
-      padding: 0;
-      a {
-        display: block;
-        color: darken($gray, 50%);
-        background: $gray;
-        @include double-shadow($gray);
-        @include hover-style($gray);
-        @include text-shadow(0 -1px 0 rgba(255, 255, 255, 0.3));
-        padding: 10px 10px;
-      }
-    }
-  }
-  .show,
-  .hide {
-    @include transform-origin(50%,
-    0%);
-  }
-  .show {
-    display: block;
-    max-height: 9999px;
-    @include transform(scaleY(1));
-    @include animation(showAnimation .5s ease-in-out);
-    @include transition(max-height 1s ease-in-out);
-  }
-  .hide {
-    max-height: 0;
-    @include transform(scaleY(0));
-    @include animation(hideAnimation .4s ease-out);
-    @include transition(max-height .6s ease-out);
-  }
-}
-
-@include keyframes(showAnimation) {
-  0% {
-    @include transform(scaleY(0.1));
-  }
-  40% {
-    @include transform(scaleY(1.04));
-  }
-  60% {
-    @include transform(scaleY(0.98));
-  }
-  80% {
-    @include transform(scaleY(1.04));
-  }
-  100% {
-    @include transform(scaleY(0.98));
-  }
-  80% {
-    @include transform(scaleY(1.02));
-  }
-  100% {
-    @include transform(scaleY(1));
-  }
-}
-
-@include keyframes(hideAnimation) {
-  0% {
-    @include transform(scaleY(1));
-  }
-  60% {
-    @include transform(scaleY(0.98));
-  }
-  80% {
-    @include transform(scaleY(1.02));
-  }
-  100% {
-    @include transform(scaleY(0));
-  }
-}
-    
+        .hero {
+            background-size: 150%;
+            background-repeat: no-repeat;
+            background-position: left;
+            -webkit-animation: slide 40s ease;
+            transform: translate3d(0, 0, 0);
+            height: 100vh;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background: rgba(76, 56, 75, .8)
+        }
+        
+        .hero__content {
+            z-index: 101;
+            position: relative;
+        }
+        
+        @-webkit-keyframes slide {
+            0% {
+                background-position: left;
+            }
+            50% {
+                background-position: right;
+            }
+            100% {
+                background-position: left;
+            }
+        }
+        
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 100;
+            color: white;
+            margin: 0;
+        }
+        
+        .hero__content {
+            padding: 200px 100px;
+            max-width: 310px;
+        }
+        
+        $blue: #2980B9;
+        $gray: #EEE;
+        @mixin ul-nostyle {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        @mixin double-shadow($color) {
+            @include box-shadow(0 1px 0 lighten($color, 10%) inset, 0 -1px 0 darken($color, 10%) inset);
+        }
+        
+        @mixin hover-style($color) {
+            &:hover {
+                background: lighten($color, 3%);
+            }
+        }
+        
+        @mixin animation($content) {
+            animation: $content;
+            -moz-animation: $content;
+            -webkit-animation: $content;
+        }
+        
+        @mixin keyframes($name) {
+            @keyframes #{$name} {
+                @content;
+            }
+            @-moz-keyframes #{$name} {
+                @content;
+            }
+            @-webkit-keyframes #{$name} {
+                @content;
+            }
+        }
+        
+        // =============================================================================
+        //	Classes
+        // =============================================================================
+        .title {
+            font-family: 'Pacifico';
+            font-weight: norma;
+            font-size: 40px;
+            text-align: center;
+            line-height: 1.4;
+            color: $blue;
+        }
+        
+        .dropdown {
+            a {
+                text-decoration: none;
+            }
+            [data-toggle="dropdown"] {
+                position: relative;
+                display: block;
+                color: white;
+                background: $blue;
+                @include double-shadow($blue);
+                @include hover-style($blue);
+                @include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.3));
+                padding: 10px;
+            }
+            .icon-arrow {
+                position: absolute;
+                display: block;
+                font-size: 0.7em;
+                color: #fff;
+                top: 14px;
+                right: 10px;
+                &.open {
+                    @include transform(rotate(-180deg));
+                    @include transition(transform .6s);
+                }
+                &.close {
+                    @include transform(rotate(0deg));
+                    @include transition(transform .6s);
+                }
+                &:before {
+                    content: '\25BC';
+                }
+            }
+            .dropdown-menu {
+                max-height: 0;
+                overflow: hidden;
+                @include ul-nostyle;
+                li {
+                    padding: 0;
+                    a {
+                        display: block;
+                        color: darken($gray, 50%);
+                        background: $gray;
+                        @include double-shadow($gray);
+                        @include hover-style($gray);
+                        @include text-shadow(0 -1px 0 rgba(255, 255, 255, 0.3));
+                        padding: 10px 10px;
+                    }
+                }
+            }
+            .show,
+            .hide {
+                @include transform-origin(50%, 0%);
+            }
+            .show {
+                display: block;
+                max-height: 9999px;
+                @include transform(scaleY(1));
+                @include animation(showAnimation .5s ease-in-out);
+                @include transition(max-height 1s ease-in-out);
+            }
+            .hide {
+                max-height: 0;
+                @include transform(scaleY(0));
+                @include animation(hideAnimation .4s ease-out);
+                @include transition(max-height .6s ease-out);
+            }
+        }
+        
+        @include keyframes(showAnimation) {
+            0% {
+                @include transform(scaleY(0.1));
+            }
+            40% {
+                @include transform(scaleY(1.04));
+            }
+            60% {
+                @include transform(scaleY(0.98));
+            }
+            80% {
+                @include transform(scaleY(1.04));
+            }
+            100% {
+                @include transform(scaleY(0.98));
+            }
+            80% {
+                @include transform(scaleY(1.02));
+            }
+            100% {
+                @include transform(scaleY(1));
+            }
+        }
+        
+        @include keyframes(hideAnimation) {
+            0% {
+                @include transform(scaleY(1));
+            }
+            60% {
+                @include transform(scaleY(0.98));
+            }
+            80% {
+                @include transform(scaleY(1.02));
+            }
+            100% {
+                @include transform(scaleY(0));
+            }
+        }
     </style>
 
 </head>
@@ -250,9 +253,9 @@ $gray: #EEE;
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-<!--                <a class="navbar-brand page-scroll" href="#page-top">CWCCI LOGO</a>-->
+                <!--                <a class="navbar-brand page-scroll" href="#page-top">CWCCI LOGO</a>-->
                 <div id="myImage" style="display:none">
-                <embed  src="img/CWCCI_logo_1.swf" wmode="transparent" >   
+                    <embed src="img/CWCCI_logo_1.swf" wmode="transparent">
                 </div>
             </div>
 
@@ -263,16 +266,21 @@ $gray: #EEE;
                         <a class="page-scroll" href="#home">HOME</a>
 
                     </li>
-       
+
                     <li>
                         <a class="page-scroll" href="#features">ABOUT</a>
 
                     </li>
+                    <li><a class="page-scroll" href="#member">Membership</a></li>
+                    <li><a class="page-scroll" href="#service">Service</a></li>
+
+                    <li><a class="page-scroll" href="#events">Upcoming Events </a></li>
+
                     <li>
                         <a class="page-scroll" href="#contact">CONTACT</a>
                     </li>
 
-<!--
+                    <!--
                       <li class="dropdown"> <a  data-toggle="dropdown"  >MORE >></a>
                           <ul class="dropdown-menu">
         <li><a href="president.html" target="_blank">President's Message</a></li>
@@ -293,8 +301,8 @@ $gray: #EEE;
                     </li>
 
 -->
-                    
-<!--
+
+                    <!--
                       <li class="dropdown">
       <a href="#" class="trigger-drop" title="more">
         More<i class="fa fa-angle-down"></i>
@@ -316,43 +324,66 @@ $gray: #EEE;
     </li>
                 
 -->
-                    
-                    
-                    <li>  <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">More</a></li>
-                    
-                    
-                    
-                </ul>
-             
 
-       
- 
+
+                    <li> <a href="#menu-toggle" id="menu-toggle">More</a></li>
+
+
+
+                </ul>
+
+
+
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
 
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+
+            <ul class="sidebar-nav">
+                <h3> <li><a href="#" target="_blank">CWCCI</a></li></h3>
+
+                <li><a href="sme.html" target="_blank">SME Couseling </a></li>
+                <li><a href="wedp.html" target="_blank">WEDP</a></li>
+                <li><a href="training.html" target="_blank">Training</a></li>
+                <li><a href="partner.html" target="_blank">Partner</a></li>
+                <li><a href="member_product.html" target="_blank">Member Showcase & Products</a></li>
+                <li><a href="news.html" target="_blank">Newsletter & Publications</a></li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+    </div>
+    <!-- /#wrapper -->
+
     <header>
         <div class="container">
             <div class="row">
 
                 <div class="col-sm-12">
-                   
-                        <div class="header-content-inner">
-                     
- <div class="hero" style="background-image: url(img/first.jpg)">
-  <div class="hero__content">
-    <h1>CWCCI</h1>
-    <a class="btn" href="#">Sign up for membership
+
+                    <div class="header-content-inner">
+
+                        <div class="hero" style="background-image: url(img/first.jpg)">
+                            <div class="hero__content">
+                                <h1>CWCCI</h1>
+                                <a class="btn" href="#">Sign up for membership
       </a>
-  </div>
-</div>
+                            </div>
                         </div>
-                  
+                    </div>
+
                 </div>
 
-            
+
             </div>
         </div>
     </header>
@@ -363,9 +394,9 @@ $gray: #EEE;
                 <div class="col-md-8 col-md-offset-2">
 
                     <h2 class="section-heading">Chittagong Women Chamber of Commerce & Industry-CWCCI</h2>
-                    <p>Chittagong Women Chamber of Commerce & Industry-CWCCI is to  To encourage and foster growth, development and sustainable success of women entrepreneurs in Bangladesh with special focus on greater Chittagong.
-</p>
-                  
+                    <p>Chittagong Women Chamber of Commerce & Industry-CWCCI is to To encourage and foster growth, development and sustainable success of women entrepreneurs in Bangladesh with special focus on greater Chittagong.
+                    </p>
+
 
                 </div>
             </div>
@@ -380,7 +411,7 @@ $gray: #EEE;
 
                         <h2>About CWCCI </h2>
 
-                     
+
                         <hr>
                     </div>
                 </div>
@@ -388,26 +419,22 @@ $gray: #EEE;
             <div class="row">
 
                 <div class="col-md-12">
-                
-                Chittagong Women Chamber of Commerce & Industry (CWCCI) is one of the leading Chambers involved in economic empowerment of women in Bangladesh. It was formed by a group of innovative women entrepreneurs in 2003. Currently the Chamber is working as a common platform for Women Entrepreneurs & Business Women in Chittagong region.
 
-Main aim of CWCCI is to protect, develop, support, & promote all measures towards ensuring a favorable environment for the business enterprises owned by the women.
+                    Chittagong Women Chamber of Commerce & Industry (CWCCI) is one of the leading Chambers involved in economic empowerment of women in Bangladesh. It was formed by a group of innovative women entrepreneurs in 2003. Currently the Chamber is working as a common platform for Women Entrepreneurs & Business Women in Chittagong region. Main aim of CWCCI is to protect, develop, support, & promote all measures towards ensuring a favorable environment for the business enterprises owned by the women. The members of the Chamber includes individual enterprises, co-operatives, private companies, NGOs and institutions either owned or operated by women, working for entrepreneurship development amongst women. Our objectives are far reaching, and increasing number of women is being able to transform their latent potentiality into reality. CWCCI provides to the members overall technological and business solutions for sustainability of women entrepreneurships.
 
-The members of the Chamber includes individual enterprises, co-operatives, private companies, NGOs and institutions either owned or operated by women, working for entrepreneurship development amongst women. Our objectives are far reaching, and increasing number of women is being able to transform their latent potentiality into reality. CWCCI provides to the members overall technological and business solutions for sustainability of women entrepreneurships.
-                
-                </div>
-                            
-            
-
-                                <div class="button">
-                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
+
+
+                <div class="button">
+                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
             </div>
+        </div>
+        </div>
+        </div>
+
+        </div>
     </section>
 
     <section class="cta">
@@ -421,11 +448,174 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
         <div class="overlay"></div>
     </section>
 
+
+
+
+    <section id="member" class="member">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+
+                        <h2>Membership </h2>
+
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+                    <img class="img-responsive" src="img/members.jpg" style="  display: block;
+    margin: 0 auto; padding:45px 0;">
+                </div>
+
+                <div class="col-md-12">
+
+                    The members of the Chamber include individual enterprises, cooperatives, private companies, NGOs, and institutions either owned or operated by women, working for entrepreneurship development amongst women. Click here for being a new member. CWCCI has Two types of memberships: General & Corporate. General Members are the individual business organizations owned by the women.
+                    <br>Corporate Membership NGOs, Cooperatives, Companies which are working for the development of women entrepreneurship.
+                    <br> For membership of any category, an application in prescribed format along with other documents is to be submitted to the President of CWCCI. After proper scrutiny done by the Membership Committee, Membership is awarded to the applicant.
+                    <br>Membership Fees:
+                    <br>General Membership:
+                    <br> Application Fees (BDT) + Registration Fees (BDT) + 2 Years SubscriptIon(BDT)
+                    <br> 20.00 + 750.00 + 1,500.00 = 2,270.00
+                    <br>Corporate Membership:
+                    <br>Application Fees (BDT) + Registration Fees (BDT) + 2 Years SubscriptIon(BDT)
+                    <br> 20.00 + 2500.00 + 5000.00 = 7,520.00
+
+
+                </div>
+
+
+
+                <div class="button">
+                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="service" class="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+
+                        <h2>Service </h2>
+
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+
+                <div class="col-md-12">
+
+                    <!-- Page Content -->
+                    <div class="container">
+
+                        <div class="row">
+
+
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="img/Picture1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="img/Picture9.jpg" alt="">
+                                </a>
+                            </div>
+
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="img/Picture8.jpg" alt="">
+                                </a>
+                            </div>
+                            <!--
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="img/Picture2.jpg" alt="">
+                                </a>
+                            </div>
+-->
+
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="img/Picture4.jpg" alt="">
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+
+                        Policy Advocacy:
+                        <ul>
+                            <li>Round Table Meeting, Conference, Seminar, Workshop, Symposium for receiving data, Information, Findings and recommendation relating to the challenges/barriers on different policy issues and subsequently prepares appropriate recommendations in this regards for confederation of the government in favor of the women entrepreneurs.
+                            </li>
+
+                            <li>48 (Forty Eight) women entrepreneurs of Chittagong have received trade license and certificates for doing business properly through the active support of CWCCI who had no access and competency in this regards.
+
+                            </li>
+                            <li>The women entrepreneurs at Chittagong felt very encouraging by receiving the support of CWCCI and thus new women entrepreneurs come forward under the banner of CWCCI to do business in different SME clusters.
+
+
+                            </li>
+                            <li>60 (Sixty) Women Entrepreneurs enjoyed Registration from Join Stock Company on different nature of business and for establishment of different SME Clusters.
+
+
+                            </li>
+                            <li>45 (Forty Five) Women Entrepreneurs at Chittagong enjoyed certificates and Boiler compliance from the respective offices like Patten & Design, Trade Mark and Boiler under the executive control of the Ministry of Industries by the support of CWCCI.
+
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+        </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
     <section id="contact" class="contact bg-primary">
         <div class="container">
-                 <h2>Contact Us</h2>
- <div id="map" style="width:100%;height:500px"></div>
+            <h2>Contact Us</h2>
+            <h4>Chittagong Women Chamber of Commerce & Industry <br>
 
+                Janhan Building-5(2nd floor), 74 Agrabad Commercial area, Chittagong-4100, Bangladesh<br>Phone: +88-031-726523, 2514331<br> Fax:+88-031-710572 <br>E-Mail:info@cwcci.org</h4>
+            <div id="map" style="width:100%;height:500px"></div>
+            <br>
             <h2>For more information</h2>
 
             <ul class="list-inline list-social">
@@ -449,7 +639,7 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
 
             <p>&copy; Powerd by IT Quad </p>
 
-       
+
             <ul class="list-inline">
                 <li>
                     <a href="#">Privacy</a>
@@ -463,40 +653,38 @@ The members of the Chamber includes individual enterprises, co-operatives, priva
             </ul>
         </div>
     </footer>
-            
-<script>
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {
-    center: new google.maps.LatLng(22.3272, 91.797654),
-    zoom: 15
-  }
-     
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-    
-    var myLatlng = new google.maps.LatLng(22.3272, 91.797654);
-var mapOptions = {
-  zoom: 14,
-  center: myLatlng
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-var marker = new google.maps.Marker({
-    position: myLatlng,
-    title:"Hello World!"
-});
+    <script>
+        function myMap() {
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = {
+                center: new google.maps.LatLng(22.327702, 91.815640),
+                zoom: 16
+            }
 
-// To add the marker to the map, call setMap();
-marker.setMap(map);
-    
-     
-}
-    
-  
-</script>
-        
+            var map = new google.maps.Map(mapCanvas, mapOptions);
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFfd9bp6esmWYNSTkiRgLONkiAVHfstZY&callback=myMap"></script>
+            var myLatlng = new google.maps.LatLng(22.327702, 91.815640);
+            var mapOptions = {
+                zoom: 16,
+                center: myLatlng
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+
+            });
+
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
+
+
+        }
+    </script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFfd9bp6esmWYNSTkiRgLONkiAVHfstZY&callback=myMap"></script>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -508,15 +696,14 @@ marker.setMap(map);
 
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
-  <script src="js/index.js"></script>
-<script>
-      
+    <script src="js/index.js"></script>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
 
-     $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 
 </body>
 

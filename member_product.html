@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Chittagong Women Chamber of Commerce</title>
+ 
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="vendor/device-mockups/device-mockups.min.css">
+
+    <!-- Theme CSS -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+   
+ 
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    .hero {
+  background-size: 150%;
+  background-repeat: no-repeat;
+  background-position: left;
+  -webkit-animation: slide 40s ease;
+  transform: translate3d(0,0,0);
+  height: 100vh;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(76,56,75,.8)
+}
+
+.hero__content {
+  z-index: 101;
+  position: relative;
+}
+
+@-webkit-keyframes slide {
+  0%   { background-position: left; }
+  50%   { background-position: right; }
+  100% { background-position: left; }
+}
+
+.hero h1 {
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+  margin: 0;
+}
+
+.hero__content {
+    padding: 200px 100px;
+    max-width: 310px;
+}
+
+    $blue: #2980B9;
+$gray: #EEE;
+@mixin ul-nostyle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin double-shadow($color) {
+  @include box-shadow(0 1px 0 lighten($color, 10%) inset,
+  0 -1px 0 darken($color, 10%) inset);
+}
+
+@mixin hover-style($color) {
+  &:hover {
+    background: lighten($color, 3%);
+  }
+}
+
+@mixin animation($content) {
+  animation: $content;
+  -moz-animation: $content;
+  -webkit-animation: $content;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+}
+
+// =============================================================================
+//	Classes
+// =============================================================================
+.title {
+  font-family: 'Pacifico';
+  font-weight: norma;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1.4;
+  color: $blue;
+}
+
+.dropdown {
+  a {
+    text-decoration: none;
+  }
+  [data-toggle="dropdown"] {
+    position: relative;
+    display: block;
+    color: white;
+    background: $blue;
+    @include double-shadow($blue);
+    @include hover-style($blue);
+    @include text-shadow(0 -1px 0 rgba(0, 0, 0, 0.3));
+    padding: 10px;
+  }
+  .icon-arrow {
+    position: absolute;
+    display: block;
+    font-size: 0.7em;
+    color: #fff;
+    top: 14px;
+    right: 10px;
+    &.open {
+      @include transform(rotate(-180deg));
+      @include transition(transform .6s);
+    }
+    &.close {
+      @include transform(rotate(0deg));
+      @include transition(transform .6s);
+    }
+    &:before {
+      content: '\25BC';
+    }
+  }
+  .dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    @include ul-nostyle;
+    li {
+      padding: 0;
+      a {
+        display: block;
+        color: darken($gray, 50%);
+        background: $gray;
+        @include double-shadow($gray);
+        @include hover-style($gray);
+        @include text-shadow(0 -1px 0 rgba(255, 255, 255, 0.3));
+        padding: 10px 10px;
+      }
+    }
+  }
+  .show,
+  .hide {
+    @include transform-origin(50%,
+    0%);
+  }
+  .show {
+    display: block;
+    max-height: 9999px;
+    @include transform(scaleY(1));
+    @include animation(showAnimation .5s ease-in-out);
+    @include transition(max-height 1s ease-in-out);
+  }
+  .hide {
+    max-height: 0;
+    @include transform(scaleY(0));
+    @include animation(hideAnimation .4s ease-out);
+    @include transition(max-height .6s ease-out);
+  }
+}
+
+@include keyframes(showAnimation) {
+  0% {
+    @include transform(scaleY(0.1));
+  }
+  40% {
+    @include transform(scaleY(1.04));
+  }
+  60% {
+    @include transform(scaleY(0.98));
+  }
+  80% {
+    @include transform(scaleY(1.04));
+  }
+  100% {
+    @include transform(scaleY(0.98));
+  }
+  80% {
+    @include transform(scaleY(1.02));
+  }
+  100% {
+    @include transform(scaleY(1));
+  }
+}
+
+@include keyframes(hideAnimation) {
+  0% {
+    @include transform(scaleY(1));
+  }
+  60% {
+    @include transform(scaleY(0.98));
+  }
+  80% {
+    @include transform(scaleY(1.02));
+  }
+  100% {
+    @include transform(scaleY(0));
+  }
+}
+    
+    </style>
+</head>
+
+<body id="page-top">
+
+
+              <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+                  
+              <div class="row" style="background:#6fcbf0; height:150px ">
+                  <div class= "col-md-4">
+              <embed src="img/CWCCI_logo_1.swf" wmode="transparent"/>
+                     </div>
+                      
+                             <div class= "col-sm-8">
+                                 <h1 style="font-size:4vw;color: white">Members</h1>
+                     </div>
+                </div>
+      
+    </nav>
+
+
+    <section id="home" class="download bg-primary text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                   
+                        <div class="header-content-inner" style="padding-left:8%">
+                             <img src="img/members.jpg" class="img-responsive">
+                     
+                </div>
+                  
+                </div>
+        
+            </div>
+        </div>
+    <br>
+                       <div class="row">
+
+                <div class="col-md-12">
+                
+             <h4 style="font-weight:bold">The members of the Chamber include individual enterprises, cooperatives, private companies, NGOs, and institutions either owned or operated by women, working for entrepreneurship development amongst womenThe members of the Chamber include individual enterprises, cooperatives, private companies, NGOs, and institutions either owned or operated by women, working for entrepreneurship development amongst womenThe members of the Chamber include individual enterprises, cooperatives, private companies, NGOs, and institutions either owned or operated by women, working for entrepreneurship development amongst women.
+                <br>
+                Our objectives are far-reaching and increasing number of women are being able to transform their latent potentiality into reality. CWCCI provides to the members overall technological and business solutions for sustainability of women entrepreneurships.
+                 <br>
+                    The sustainable growth of trade and business owned and/or run by the businesswomen is stimulated and encouraged through the professional services of CWCCI. The on-going services rendered to its members include:
+
+                    
+                    </h4>
+                
+                </div>
+                            
+            
+
+                                <div class="button">
+                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                                </div>
+                            </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <footer>
+        <div class="container">
+            <p>&copy; Powerd by IT Quad </p>
+            <ul class="list-inline">
+                <li>
+                    <a href="#">Privacy</a>
+                </li>
+                <li>
+                    <a href="#">Terms</a>
+                </li>
+                <li>
+                    <a href="#">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+        <script>
+        // Dropdown Menu
+var dropdown = document.querySelectorAll('.dropdown');
+var dropdownArray = Array.prototype.slice.call(dropdown,0);
+dropdownArray.forEach(function(el){
+	var button = el.querySelector('a[data-toggle="dropdown"]'),
+			menu = el.querySelector('.dropdown-menu'),
+			arrow = button.querySelector('i.icon-arrow');
+
+	button.onclick = function(event) {
+		if(!menu.hasClass('show')) {
+			menu.classList.add('show');
+			menu.classList.remove('hide');
+			arrow.classList.add('open');
+			arrow.classList.remove('close');
+			event.preventDefault();
+		}
+		else {
+			menu.classList.remove('show');
+			menu.classList.add('hide');
+			arrow.classList.remove('open');
+			arrow.classList.add('close');
+			event.preventDefault();
+		}
+	};
+})
+
+Element.prototype.hasClass = function(className) {
+    return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+};
+        
+        </script>
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/new-age.min.js"></script>
+
+</body>
+
+</html>
